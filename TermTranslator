@@ -1,0 +1,194 @@
+#   Buildt by Michael McIntosh
+
+#   Dictionary of 250 financial term and 250 technology terms 
+
+financial_terms = {
+    'account': 'cuenta',
+    'accrual': 'acumulación',
+    'acquisition': 'adquisición',
+    'adjustment': 'ajuste',
+    'affiliate': 'afiliado',
+    'allocation': 'asignación',
+    'amortization': 'amortización',
+    'annual report': 'informe anual',
+    'asset': 'activo',
+    'audit': 'auditoría',
+    'balance': 'balance',
+    'bank': 'banco',
+    'bankruptcy': 'quiebra',
+    'bond': 'bono',
+    'bookkeeping': 'contabilidad',
+    'broker': 'corredor',
+    'budget': 'presupuesto',
+    'capital': 'capital',
+    'cash flow': 'flujo de efectivo',
+    'central bank': 'banco central',
+    'collateral': 'colateral',
+    'commodity': 'commodity',
+    'consolidation': 'consolidación',
+    'credit': 'crédito',
+    'currency': 'moneda',
+    'debt': 'deuda',
+    'deficit': 'déficit',
+    'derivatives': 'derivados',
+    'divestment': 'desinversión',
+    'dividend': 'dividendo',
+    'earnings': 'ganancias',
+    'equity': 'patrimonio',
+    'exchange rate': 'tipo de cambio',
+    'expenses': 'gastos',
+    'financial statement': 'estado financiero',
+    'fiscal year': 'año fiscal',
+    'foreclosure': 'ejecución hipotecaria',
+    'foreign exchange': 'cambio de divisas',
+    'fund': 'fondo',
+    'hedge fund': 'fondo de cobertura',
+    'income': 'ingreso',
+    'inflation': 'inflación',
+    'insurance': 'seguro',
+    'interest': 'interés',
+    'investment': 'inversión',
+    'invoice': 'factura',
+    'liability': 'pasivo',
+    'liquidity': 'liquidez',
+    'loan': 'préstamo',
+    'merger': 'fusión',
+    'mortgage': 'hipoteca',
+    'mutual fund': 'fondo mutuo',
+    'net income': 'ingreso neto',
+    'offshore': 'offshore',
+    'overhead': 'gastos generales',
+    'overdraft': 'descubierto',
+    'payroll': 'nómina',
+    'portfolio': 'portafolio',
+    'profit': 'ganancia',
+    'rate of return': 'tasa de retorno',
+    'recession': 'recesión',
+    'revenue': 'ingresos',
+    'risk': 'riesgo',
+    'savings': 'ahorros',
+    'share': 'acción',
+    'stock exchange': 'bolsa de valores',
+    'tax': 'impuesto',
+    'valuation': 'valoración',
+    'venture capital': 'capital de riesgo',
+    'withdrawal': 'retiro',
+    'yield': 'rendimiento',
+    #   space for additional words
+}
+
+technology_terms = {
+    'algorithm': 'algoritmo',
+    'analytics': 'analítica',
+    'application': 'aplicación',
+    'artificial intelligence': 'inteligencia artificial',
+    'automation': 'automatización',
+    'backup': 'respaldo',
+    'bandwidth': 'ancho de banda',
+    'big data': 'big data',
+    'biometrics': 'biometría',
+    'blockchain': 'cadena de bloques',
+    'browser': 'navegador',
+    'bug': 'error',
+    'cache': 'caché',
+    'cloud computing': 'computación en la nube',
+    'code': 'código',
+    'compiler': 'compilador',
+    'computer': 'computadora',
+    'cookie': 'cookie',
+    'cybersecurity': 'ciberseguridad',
+    'data': 'datos',
+    'database': 'base de datos',
+    'debugging': 'depuración',
+    'desktop': 'escritorio',
+    'digital': 'digital',
+    'domain': 'dominio',
+    'download': 'descargar',
+    'e-commerce': 'comercio electrónico',
+    'encryption': 'encriptación',
+    'firewall': 'cortafuegos',
+    'framework': 'marco de trabajo',
+    'frontend': 'frontend',
+    'gaming': 'juegos',
+    'hacker': 'hacker',
+    'hardware': 'hardware',
+    'hashtag': 'etiqueta',
+    'hosting': 'alojamiento',
+    'hyperlink': 'hipervínculo',
+    'interface': 'interfaz',
+    'internet': 'internet',
+    'javascript': 'javascript',
+    'keyboard': 'teclado',
+    'laptop': 'portátil',
+    'malware': 'malware',
+    'memory': 'memoria',
+    'monitor': 'monitor',
+    'mouse': 'ratón',
+    'network': 'red',
+    'online': 'en línea',
+    'password': 'contraseña',
+    'phishing': 'phishing',
+    'platform': 'plataforma',
+    'programming': 'programación',
+    'protocol': 'protocolo',
+    'router': 'enrutador',
+    'search engine': 'motor de búsqueda',
+    'server': 'servidor',
+    'smartphone': 'teléfono inteligente',
+    'software': 'software',
+    'spam': 'spam',
+    'spyware': 'spyware',
+    'storage': 'almacenamiento',
+    'streaming': 'transmisión',
+    'subscription': 'suscripción',
+    'synthetic data': 'datos sintéticos',
+    'table': 'tabla',
+    'template': 'plantilla',
+    'upload': 'subir',
+    'username': 'nombre de usuario',
+    'user interface': 'interfaz de usuario',
+    'virtual reality': 'realidad virtual',
+    'virus': 'virus',
+    'web design': 'diseño web',
+    'website': 'sitio web',
+    'wi-fi': 'wi-fi',
+    'wireless': 'inalámbrico',
+    'workflow': 'flujo de trabajo',
+    'XML': 'XML',
+    'zip file': 'archivo zip',
+    'agile development': 'desarrollo ágil',
+    'API': 'API',
+    'app store': 'tienda de aplicaciones',
+    'authentication': 'autenticación',
+    #   space for additional words
+}
+
+#  track learned words 
+learned_terms = {
+    'financial': 0,
+    'technology': 0
+} 
+
+#   count and return corresponding term 
+def translate_term(term):
+    term = term.lower()
+    if term in financial_terms:
+        learned_terms['financial'] += 1
+        return financial_terms[term]
+    elif term in technology_terms:
+        learned_terms['technology'] += 1
+        return technology_terms[term]
+    else:
+        return "Translation not found."
+
+#   User Prompt
+while True:
+    user_input = input("Enter an English term to translate, enter (q to quit) and find out how many words you learned: \n")
+    if user_input.lower() == 'q':
+        break
+    translation = translate_term(user_input)
+    print(f"Translation: {translation}")
+
+#   Display results of terms learned 
+print("Number of financial terms learned:", learned_terms['financial'])
+print("Number of technology terms learned:", learned_terms['technology'])
